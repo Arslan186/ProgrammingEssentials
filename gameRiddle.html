@@ -5,14 +5,35 @@
     </head>
     <body>
         <script type="text/javascript">
-            var riddleOne = "Она всё знает - просто шок! \nА сама всегда - молчок! \nЧтобы с нею подружиться, \nНужно чтению учиться.";
-            alert(riddleOne);
-            var userAnswer = prompt("Введите свой вариант ответа");
+        var score = 0;
+        //RiddleOne
+            var userAnswer = prompt("Она всё знает - просто шок! \nА сама всегда - молчок! \nЧтобы с нею подружиться, \nНужно чтению учиться.");
             userAnswer = userAnswer.toLowerCase();
-            if(userAnswer == "книга")
+            if(userAnswer == "книга"){
                 alert("Поздравляю! загадка отгадана верно");
+                score++;
+                }
             else
                 alert("Ответ не верный");
+        //RiddleTwo
+            userAnswer = prompt("Если я пуста бываю,\nПро себя не забываю,\nНо когда несу еду,\nМимо рта я не пройду.");
+            userAnswer = userAnswer.toLowerCase();
+            if(userAnswer == "ложка"){
+                alert("Поздравляю! загадка отгадана верно");
+                score++;
+                }
+            else
+                alert("Ответ не верный");
+        //RiddleFree
+            userAnswer = prompt("Даже и в июльский зной\nВ нём морозно, как зимой");
+            userAnswer = userAnswer.toLowerCase();
+            if(userAnswer == "холодильник"){
+                alert("Поздравляю! загадка отгадана верно");
+                score++;
+                }
+            else
+                alert("Ответ не верный");
+            alert("Вы отгодали " + score + " загадки")
         </script>
     </body>
 </html>
