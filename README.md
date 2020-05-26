@@ -1,2 +1,1 @@
-# ProgrammingEssentials
-GeekBrains home work
+GeekBrains home work convertor and trapezoid
