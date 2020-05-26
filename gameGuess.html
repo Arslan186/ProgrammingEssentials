@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>GeekBrains Home work gameGuess</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var answer = parseInt(Math.random() * 100);
+            var userAnswer = +prompt("Угадайте число от 0 до 100");
+            var maxCount = 7;
+            for(var tryCount = 1; tryCount <= maxCount; tryCount++){
+                if(userAnswer == answer){
+                    alert("Поздравляю вы угадали ");
+                    break;
+                } else if(userAnswer > answer ){
+                    alert("Вы ввели слишком большое число");
+                } else if(userAnswer < answer){
+                    alert("Вы ввели слишком маленькое число");
+                }
+                userAnswer = +prompt("Попробуйте еще раз. Введите число от 0 до 100 \n У вас осталось " + (maxCount - tryCount) + " попыток");
+            }
+            document.write("Правельное число " + answer);
+
+        </script>
+    </body>
+</html>
