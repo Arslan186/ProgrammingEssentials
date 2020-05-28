@@ -1,39 +1,90 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>GeekBrains home work gameRiddle</title>
-    </head>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Личный сайт студента GeekBrains</title>
+		<!-- CSS only -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		<link href="css/main.css" media="screen" rel="stylesheet">
+	</head>
     <body>
-        <script type="text/javascript">
-        var score = 0;
-        //RiddleOne
-            var userAnswer = prompt("Она всё знает - просто шок! \nА сама всегда - молчок! \nЧтобы с нею подружиться, \nНужно чтению учиться.");
-            userAnswer = userAnswer.toLowerCase();
-            if(userAnswer == "книга"){
-                alert("Поздравляю! загадка отгадана верно");
-                score++;
-                }
-            else
-                alert("Ответ не верный");
-        //RiddleTwo
-            userAnswer = prompt("Если я пуста бываю,\nПро себя не забываю,\nНо когда несу еду,\nМимо рта я не пройду.");
-            userAnswer = userAnswer.toLowerCase();
-            if(userAnswer == "ложка"){
-                alert("Поздравляю! загадка отгадана верно");
-                score++;
-                }
-            else
-                alert("Ответ не верный");
-        //RiddleFree
-            userAnswer = prompt("Даже и в июльский зной\nВ нём морозно, как зимой");
-            userAnswer = userAnswer.toLowerCase();
-            if(userAnswer == "холодильник"){
-                alert("Поздравляю! загадка отгадана верно");
-                score++;
-                }
-            else
-                alert("Ответ не верный");
-            alert("Вы отгодали " + score + " загадки")
-        </script>
+	    <script type="text/javascript">
+
+		var score = 0;
+
+		function checkAnswer(inputId, answers){
+			var userAnswer = document.getElementById(inputId).value;
+			userAnswer = userAnswer.toLowerCase();
+			for(var i = 0; i < answers.length; i++){
+				if(userAnswer == answers[i]){
+					score++;
+					break;
+				}
+			}
+		}
+
+		function checkAnswers() {
+
+			checkAnswer("userAnswer1", ["книга"]);
+			checkAnswer("userAnswer2", ["ложка"]);
+			checkAnswer("userAnswer3", ["холодильник"]);
+
+			alert("Вы отгадали " + score + " загадок");
+
+		}
+
+	</script>
+      <header>
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+				<a class="navbar-brand" href="/">GeekBrains</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarText">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="gameGuess.html">Угадайка</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<div class="container-fluid d-flex justify-content-center mt-2">
+			<div class="row">
+				<div class="col">
+					<h4>Игра в загадки</h4>
+					<p>Она всё знает - просто шок! 
+					<br>А сама всегда - молчок! 
+					<br>Чтобы с нею подружиться, 
+					<br>Нужно чтению учиться.</p>
+					<div class="input-group mb-3">
+						<input type="text" class="form-control" id="userAnswer1" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+					</div>
+					<p>Если я пуста бываю,
+					<br>Про себя не забываю,
+					<br>Но когда несу еду, 
+					<br>Мимо рта я не пройду.</p>
+					<div class="input-group mb-3">
+						<input type="text" class="form-control" id="userAnswer2" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+					</div>
+					<p>Даже и в июльский зной
+					<br>В нём морозно, как зимой</p>
+					<div class="input-group mb-3">
+						<input type="text" class="form-control" id="userAnswer3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+					</div>
+					<a href="#" onClick="checkAnswers();" class="btn btn-dark mt-2 btn-sm" id="button">Ответить</a>
+				</div>
+			</div>
+		</div>
+		<footer class="mt-2">
+			<div class="text-center text-light bg-dark">
+				Copyright &copy; Arslan Hasanov | 2020
+			<div>
+		</footer>
+		<!-- JS, Popper.js, and jQuery -->
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     </body>
 </html>

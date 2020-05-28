@@ -8,51 +8,10 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 		<link href="css/main.css" media="screen" rel="stylesheet">
 	</head>
-    <body>
-	<!-- gameGuess -->
-	<script type"text/javascript">
-        var answer = parseInt(Math.random() * 100);
-		var tryCount = 0;
-		var maxTryCount = 5;
-
-		function readInt(){
-			var number = document.getElementById("userAnswer").value;
-			return parseInt(number);
-			// return +document.getElementById("userAnswer").value;
-		}
-
-		function write(text){
-			document.getElementById("info").innerHTML = text;
-		}
-
-		function hide(id){
-			document.getElementById(id).style.display = "none";
-		}
-
-		function guess(){
-			tryCount++;
-
-			var userAnswer = readInt();
-			if(userAnswer == answer){
-				write("<b>Поздравляю, вы угадали!</b>");
-				hide("button");
-				hide("userAnswer");
-			} else if(tryCount >= maxTryCount){
-				write("Вы проиграли<br>Правильный ответ: " + answer);
-				hide("button");
-				hide("userAnswer");
-			} else if(userAnswer > answer){
-				write("Вы ввели слишком большое число<br>Попробуйте еще раз. Введите число от 1 до 100");
-			} else if(userAnswer < answer){
-				write("Вы ввели слишком маленькое число<br>Попробуйте еще раз. Введите число от 1 до 100");				
-			}
-		}
-
-        </script>
-	<!-- and gameGuess -->
+	<body>
 		<header>
 			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-				<a class="navbar-brand" href="/">GeekBrains</a>
+				<a class="navbar-brand" href="#">GeekBrains</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
@@ -61,22 +20,27 @@
 						<li class="nav-item">
 							<a class="nav-link" href="gameRiddle.html">Загадки</a>
 						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="gameGuess.html">Угадайка</a>
+						</li>
 					</ul>
 				</div>
 			</nav>
 		</header>
-		<div class="container-fluid d-flex justify-content-center mt-2">
-			<div class="row">
-				<div class="col">
-					<h4>Игра угадайка</h4>
-					<p id="info">Угадайте число от 0 до 100</p>
-					<div class="input-group mb-3">
-						<input type="text" class="form-control" id="userAnswer" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-					</div>
-					<a href="#" onClick="guess();" class="btn btn-dark mt-2 btn-sm" id="button">Начать</a>
+
+
+		<div class="bodyContent container-fluid mt-2">
+			<div class="media">
+				<img src="img/avatar.png" class="align-self-center mr-3 imgAvatar" alt="...">
+				<div class="media-body">
+					<h5 class="mt-0">Личный сайт студента GeekBrains</h5>
+					<p>Добрый день. Меня зовут Арслан Хасанов. Я совсем недавно начал программировать, однако уже написал свой первый сайт.</p>
+					<p>В этом мне помог IT-портал <a href="https://geekbrains.ru">GeekBrains</a></p>
+					<p class="mb-0">На этом сайте вы сможете сыграть в несколько игр, которые написал я: <a href="gameRiddle.html">Загадки</a> / <a href="gameGuess.html">Угадайка</a></p>
 				</div>
 			</div>
 		</div>
+
 		<footer class="mt-2">
 			<div class="text-center text-light bg-dark">
 				Copyright &copy; Arslan Hasanov | 2020
@@ -86,5 +50,5 @@
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    </body>
+	</body>
 </html>
