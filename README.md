@@ -1,1 +1,1 @@
-GeekBrains home work convertor and trapezoid
+GeekBrains home work
