@@ -3,39 +3,53 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Загадки</title>
+		<title>Генератор случайных паролей</title>
 		<!-- CSS only -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 		<link href="css/main.css" media="screen" rel="stylesheet">
 	</head>
     <body>
-	    <script type="text/javascript">
+	<!-- passRandom -->
+	<script type="text/javascript">
+		var letters = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
-		var score = 0;
+		var lengthPass = readInt();
 
-		function checkAnswer(inputId, answers){
-			var userAnswer = document.getElementById(inputId).value;
-			userAnswer = userAnswer.toLowerCase();
-			for(var i = 0; i < answers.length; i++){
-				if(userAnswer == answers[i]){
-					score++;
-					break;
-				}
+		function getPassword(letters, lengthPass) {
+			var text = "";
+			for(var i = 1; i <= lengthPass; i++){
+				var n = getRandomNumber(letters.length - 1);
+				text = text + letters[n];
 			}
+			return text;
 		}
 
-		function checkAnswers() {
-
-			checkAnswer("userAnswer1", ["книга"]);
-			checkAnswer("userAnswer2", ["ложка"]);
-			checkAnswer("userAnswer3", ["холодильник"]);
-
-			alert("Вы отгадали " + score + " загадок");
-
+		function generate(){
+			var password = getPassword(letters, lengthPass);
+			write("Ваш пароль:" + password);
+			hide("button");
+			hide("userAnswer");
 		}
 
+		function write(text){
+			document.getElementById("info").innerHTML = text;
+		}
+
+		function hide(id){
+			document.getElementById(id).style.display = "none";
+		}
+		
+		function getRandomNumber(max){
+			return Math.round(Math.random() * max);
+		}
+
+		function readInt(){
+			var number = document.getElementById("userAnswer").value;
+			return parseInt(number);
+			//return = +document.getElementById("userAnswer").value;
+		}
 	</script>
-      <header>
+		<header>
 			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 				<a class="navbar-brand" href="/">GeekBrains</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,10 +58,10 @@
 				<div class="collapse navbar-collapse" id="navbarText">
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item">
-							<a class="nav-link" href="gameGuess.html">Угадайка</a>
+							<a class="nav-link" href="gameRiddle.html">Загадки</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="passRandom.html">Генератор паролей</a>
+							<a class="nav-link" href="gameGuess.html">Угадайка</a>
 						</li>
 					</ul>
 				</div>
@@ -56,27 +70,12 @@
 		<div class="container-fluid d-flex justify-content-center mt-2">
 			<div class="row">
 				<div class="col">
-					<h4>Игра в загадки</h4>
-					<p>Она всё знает - просто шок! 
-					<br>А сама всегда - молчок! 
-					<br>Чтобы с нею подружиться, 
-					<br>Нужно чтению учиться.</p>
+					<h4>Генератор случайных паролей</h4>
+					<p id="info">Укажите длину пароля</p>
 					<div class="input-group mb-3">
-						<input type="text" class="form-control" id="userAnswer1" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+						<input type="text" class="form-control" id="userAnswer" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
 					</div>
-					<p>Если я пуста бываю,
-					<br>Про себя не забываю,
-					<br>Но когда несу еду, 
-					<br>Мимо рта я не пройду.</p>
-					<div class="input-group mb-3">
-						<input type="text" class="form-control" id="userAnswer2" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-					</div>
-					<p>Даже и в июльский зной
-					<br>В нём морозно, как зимой</p>
-					<div class="input-group mb-3">
-						<input type="text" class="form-control" id="userAnswer3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-					</div>
-					<a href="#" onClick="checkAnswers();" class="btn btn-dark mt-2 btn-sm" id="button">Ответить</a>
+					<a href="#" onclick="generate();" class="btn btn-dark mt-2 btn-sm" id="button">Генерировать</a>
 				</div>
 			</div>
 		</div>
